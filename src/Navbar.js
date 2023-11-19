@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Grid, Box, Toolbar, Typography } from '@mui/material';
+import { AppBar, Grid, Box, Toolbar, Typography, Button } from '@mui/material';
 
 const Navbar = () => (
   <AppBar position="fixed" sx={{ bgcolor: '#2e3033', width: '100%', boxShadow: 0 }}>
@@ -13,15 +13,15 @@ const Navbar = () => (
         <Grid item xs={6}></Grid>
         <Grid item xs={3}>
           <Box sx={{ display: 'flex', gap: 2, flexGrow: 1 }}>
-            <Typography variant="body2" component="a" href="#about">
+            <Button variant="body2" component="a" href="#about">
               About
-            </Typography>
-            <Typography variant="body2" component="a" href="#projects">
+            </Button>
+            <Button variant="body2" component="a" href="#projects">
               Projects
-            </Typography>
-            <Typography variant="body2" component="a" href="#contact">
+            </Button>
+            <Button variant="body2" component="a" href="#contact">
               Contact
-            </Typography>
+            </Button>
           </Box>
         </Grid>
       </Grid>

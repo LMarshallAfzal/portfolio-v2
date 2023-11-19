@@ -8,21 +8,38 @@ const ProjectCard = ({ project, onClick }) => {
       <Card 
         className="project-card" 
         sx={{ 
-          border: '7px solid #000000',
-          borderRadius: '25px' 
+          border: `7px solid #970cb0`,
+          borderRadius: '20px', 
+          bgcolor: '#000000',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: 350,
+          width: 370
         }}
       >
         <CardMedia
           component="img"
           image={project.imageUrl}
           alt={project.title}
-          height="200"
+          sx={{
+            MaxWidth: '100%',
+            width: '350px',
+            height: 200,
+            margin: "10px",
+            borderRadius: "15px",
+            objectFit: "fill",
+          }}
         />
-        <CardContent sx={{ overflow: "hidden" }}>
-          <Typography variant="h5" component="div">
+        <CardContent 
+          sx={{ 
+            height: 150,
+            overflow: 'hidden'
+          }}
+        >
+          <Typography variant="h5" component="div" sx={{ color: 'white'}}>
             {project.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" sx={{ color: 'white'}}>
             {project.description}
           </Typography>
           <Box mt={2}>
@@ -32,6 +49,8 @@ const ProjectCard = ({ project, onClick }) => {
           </Box>
         </CardContent>
       </Card>
+
+      
 
     </>
   )
