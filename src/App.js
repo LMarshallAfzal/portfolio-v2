@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Navbar from './Navbar';
 import ProjectCard from './ProjectCard';
 import ProjectDialog from './ProjectDialog';
-import { Grid, Container } from '@mui/material';
-import './App.css';
+import image from './portfolio-bg-dark.png';
+import { Grid, Container, ThemeProvider, createTheme } from '@mui/material';
+// import './App.css';
 
 const projects = [
   {
@@ -56,6 +57,17 @@ const projects = [
   },
 ];
 
+const theme = createTheme({
+  palette: {
+    background: {
+      default: 'url(src/portfolio-bg-dark.png)',
+      size: 'cover',
+      repeat: 'no-repeat',
+      attachment: 'fixed',
+    },
+  },
+});
+
 function App() {
   const [open, setOpen] = useState(false);
 
@@ -68,32 +80,29 @@ function App() {
   }
 
   return (
-    <div className="App" style={{
-      background: 'url("portfolio-bg-dark.png")',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed'
-    }}>
-      <Navbar />
+    // <ThemeProvider theme={theme}>
+      <div className="App" style={{ backgroundImage: `url(${image})`}}>
+        <Navbar />
 
-      <Container sx={{ maxWidth: "80%" }}>
-        <Grid container spacing={3}>
-          {projects.map((project) => (
-            <Grid item xs={12} md={6} lg={4}>
-              <ProjectCard
-                project={project}
-                onClick={handleClickOpen}
-              />
-              <ProjectDialog
-                open={open}
-                handleClose={handleClose}
-                project={project}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </div>
+        <Container sx={{ maxWidth: "80%" }}>
+          <Grid container spacing={3}>
+            {projects.map((project) => (
+              <Grid item xs={12} md={6} lg={4}>
+                <ProjectCard
+                  project={project}
+                  onClick={handleClickOpen}
+                />
+                <ProjectDialog
+                  open={open}
+                  handleClose={handleClose}
+                  project={project}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </div>
+    // </ThemeProvider>
   );
 }
 
